@@ -33,15 +33,13 @@ function load()
   colors  = {}
   systems = {}
 
-  lastFire = 2
+  lastFire = -10
 end
 
 function update(dt)
-  lastFire = lastFire + dt
-  if lastFire > 0.5 then
+  if love.timer.getTime() - lastFire > 0.5 then
     if love.keyboard.isDown(love.key_a) then addFirework("A") end
     if love.keyboard.isDown(love.key_j) then addFirework("J") end
-    lastFire = 0
   end
 
   for i = 1, table.maxn(bodies) do
@@ -114,6 +112,8 @@ function draw()
   love.graphics.setColor(white)
   love.graphics.setFont(debugFont)
   love.graphics.draw("Num: " .. table.maxn(bodies), 10, 12)
+  love.graphics.draw("Time: " .. love.timer.getTime(), 10, 26)
+  love.graphics.draw("lastFire: " .. lastFire, 10, 40)
 end
 
 function keypressed(k)
@@ -138,6 +138,7 @@ function addFirework(symbol)
   table.insert(colors, randomColor())
 
   love.audio.play(woosh)
+  lastFire = love.timer.getTime()
 end
 
 function randomColor()
