@@ -9,6 +9,8 @@ worldWidth  = worldHeight * windowWidth / windowHeight
 widthScale  = windowWidth / worldWidth
 heightScale = windowHeight / worldHeight
 
+love.filesystem.require "keyhandler.lua"
+
 function load()
   math.randomseed(os.clock())
 
@@ -38,8 +40,7 @@ end
 
 function update(dt)
   if love.timer.getTime() - lastFire > 0.5 then
-    if love.keyboard.isDown(love.key_a) then addFirework("A") end
-    if love.keyboard.isDown(love.key_j) then addFirework("J") end
+    handleKeyboard()
   end
 
   for i = 1, table.maxn(bodies) do
