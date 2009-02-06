@@ -11,3 +11,8 @@ Installation / Usage
 3. Bash keyboard
 
 WARNING: Only J and A keys supported at the moment (pre-alpha software?)
+
+Creative Commons Attributions
+=============================
+
+  Firework sounds: http://www.freesound.org/samplesViewSingle.php?id=15000
