@@ -1,4 +1,4 @@
-FILES = FileList["*.lua", "*.conf", "readme.txt", "**/*.jpg", "*.png"]
+FILES = FileList["*.lua", "*.conf", "readme.txt", "**/*.jpg", "*.png", "*.wav"]
 
 ARCHIVE = File.join(ENV["TMPDIR"], "baby-pow.love")
 
